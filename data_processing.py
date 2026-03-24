@@ -14,7 +14,14 @@ df = pd.concat(df_list, ignore_index=True)
 # Filter only Pink Morsel (case insensitive)
 df = df[df["product"].str.lower() == "pink morsel"]
 
-# Create sales column
+# Clean price (remove $ and convert to float)
+df["price"] = df["price"].replace(r"[\$,]", "", regex=True)
+df["price"] = pd.to_numeric(df["price"], errors="coerce")
+
+# Convert quantity to numeric
+df["quantity"] = pd.to_numeric(df["quantity"], errors="coerce")
+
+# Calculate sales
 df["sales"] = df["quantity"] * df["price"]
 
 # Select required columns
