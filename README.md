@@ -40,6 +40,8 @@ Analyze whether sales increased or decreased after the price hike on **January 1
 ```bash
 pip install -r requirements.txt
 python app.py
+Open in browser:
+http://127.0.0.1:8050/
 ```
 
 ## 🧪 Run Tests
